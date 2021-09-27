@@ -1,0 +1,21 @@
+<html>
+	<head>
+			<title>Farm2Home add a category of product</title>
+	</head>
+	<body>
+			<div class="model-header">
+				<h5 class="model-title">Model title</h5>
+					<button type="button" class="close" data-dismiss="model" area-label="close" style= background-color:#04AA6D;>
+						<span area-hidden="true">&times;</span>
+					</button>
+			</div>
+			<div>
+				<form id="cat_form" action="http://localhost:5000/addCategory" method="POST">
+					<h1>Addinag new category..</h1>
+					Enter category title: <input type="text" id="cat_name" name="cat_name"><br><br>
+					Enter category description:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <textarea id="cat_desc"  name="cat_desc" ></textarea><br><br>
+					<input type="submit" value="Submit" style="background-color:#04AA6D";>
+				</form>
+			</div>	
+	</body>
+</html>	

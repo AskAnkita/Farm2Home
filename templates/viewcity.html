@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Farm2Home - cities</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="">https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/fontawesome.min.css</script>
+</head>
+<body>
+
+<div class="container">
+  <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">
+    Add city
+  </button>
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Add new city form</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form id="state_form" action="http://localhost:5000/addState" method="POST">
+		            <label for="state_name">City name: </label>
+					<input type="text" id="state_name" name="state_name" class="form-control">	
+        </div>
+        <div class="modal-footer">
+		  <input type="submit" value="Submit" class="btn btn-primary">
+          <button type="reset" class="btn btn-danger">Reset</button>
+		  </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="mt-2">
+	<h2>All cities</h2>           
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>city Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+		{% for city in cities %}
+      <tr>
+        <td>{{ city[1] }}</td>
+        <td>
+			<a href="#"><span class="fa fa-edit"></span></a>&nbsp;&nbsp;
+			<a href="#"><span class="fa fa-trash"></span></a>
+		</td>
+      </tr>
+		{% endfor %}
+    </tbody>
+  </table>
+  </div>
+</div>
+
+</body>
+</html>

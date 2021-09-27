@@ -1,0 +1,36 @@
+<html>
+	<head>
+			<title>Farm2Home add a new City</title>
+			<script>
+				function checkState() {
+					var x = document.getElementById("state_id").value;
+					if(x == -1) {
+						alert("Please select state befour inserting..");
+						return false;
+					}
+				}
+			</script>
+	</head>
+	<body>
+			<div class="model-header">
+				<h5 class="model-title">Model title</h5>
+					<button type="button" class="close" data-dismiss="model" area-label="close" style= "background-color:#04AA6D;">
+						<span area-hidden="true">&times;</span>
+					</button>
+			</div>
+			<div>	
+				<form id="city_form" action="http://localhost:5000/addCity" method="POST">
+					<h1> Adding a new City ...</h1>
+					Enter city name :<br>
+					<input type="text" id="city_name" name="city_name"><br></br>
+					<select id="state_id" name="state_id">
+						<option value="-1">--Select--</option>
+							{% for state in states %}
+								<option value="{{ state[0] }}">{{ state[1] }}</option>
+							{% endfor %}
+					</select>
+					<input type="submit" value="Submit" onclick="return checkState();" style="background-color:#04AA6D">
+				</form>	
+			</div>
+	</body>
+</html>	
